@@ -1,4 +1,4 @@
-package com.example.dagger_hilt_multimodule.bind
+package com.example.dagger_hilt_multimodule.binds
 
 import javax.inject.Inject
 

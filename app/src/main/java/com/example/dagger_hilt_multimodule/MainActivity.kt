@@ -3,6 +3,7 @@ package com.example.dagger_hilt_multimodule
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.example.dagger_hilt_multimodule.bind.HogeInterface
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     // ViewModel の Inject
     private val viewModel: MainViewModel by viewModels()
 
+    // Interface を経由した Inject
+    @Inject
+    lateinit var hoge: HogeInterface
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,5 +38,7 @@ class MainActivity : AppCompatActivity() {
         singletonInjectedClass2.call()
 
         viewModel.call()
+
+        hoge.call()
     }
 }

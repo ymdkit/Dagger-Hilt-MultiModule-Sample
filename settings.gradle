@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Dagger-Hilt-MultiModule"
 include ':app'
 include ':submodule'
+include ':subsubmodule'

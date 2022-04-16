@@ -12,12 +12,21 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var injectedClass: InjectedClass
 
+    // シングルトンクラスの Inject
+    @Inject
+    lateinit var singletonInjectedClass1: SingletonInjectedClass
+    @Inject
+    lateinit var singletonInjectedClass2: SingletonInjectedClass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         injectedClass.call()
         injectedClass.callChild()
+
+        singletonInjectedClass1.call()
+        singletonInjectedClass2.call()
 
     }
 }

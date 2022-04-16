@@ -2,6 +2,7 @@ package com.example.dagger_hilt_multimodule
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var singletonInjectedClass2: SingletonInjectedClass
 
+    // ViewModel の Inject
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,5 +32,6 @@ class MainActivity : AppCompatActivity() {
         singletonInjectedClass1.call()
         singletonInjectedClass2.call()
 
+        viewModel.call()
     }
 }

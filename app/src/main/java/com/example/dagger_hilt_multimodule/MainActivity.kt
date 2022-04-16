@@ -8,6 +8,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    // 一番基本の Inject
     @Inject
     lateinit var injectedClass: InjectedClass
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         injectedClass.call()
+        injectedClass.callChild()
 
     }
 }

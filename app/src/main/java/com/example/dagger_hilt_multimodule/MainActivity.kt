@@ -67,5 +67,6 @@ class MainActivity : AppCompatActivity() {
         secondPiyo.call()
 
         subModuleInjectedClass.call()
+        subModuleInjectedClass.callSubSubModule()
     }
 }

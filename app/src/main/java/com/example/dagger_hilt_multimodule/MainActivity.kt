@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.dagger_hilt_multimodule.binds.HogeInterface
+import com.example.dagger_hilt_multimodule.provides.Fuga
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var hoge: HogeInterface
 
+    // @Inject をつけられないクラスの Inject
+    @Inject
+    lateinit var fuga: Fuga
+
+    // 同じ型で複数の Inject を行いたい場合
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,5 +47,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.call()
 
         hoge.call()
+        fuga.call()
     }
 }

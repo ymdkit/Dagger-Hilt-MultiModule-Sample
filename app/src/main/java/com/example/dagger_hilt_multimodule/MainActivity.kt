@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.dagger_hilt_multimodule.binds.HogeInterface
+import com.example.dagger_hilt_multimodule.modifier.FirstPiyo
+import com.example.dagger_hilt_multimodule.modifier.Piyo
+import com.example.dagger_hilt_multimodule.modifier.SecondPiyo
 import com.example.dagger_hilt_multimodule.provides.Fuga
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -32,7 +35,13 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var fuga: Fuga
 
-    // 同じ型で複数の Inject を行いたい場合
+    // 同じ型で複数種類の Inject を定義したい場合
+    @FirstPiyo
+    @Inject
+    lateinit var firstPiyo: Piyo
+    @SecondPiyo
+    @Inject
+    lateinit var secondPiyo: Piyo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,5 +57,8 @@ class MainActivity : AppCompatActivity() {
 
         hoge.call()
         fuga.call()
+
+        firstPiyo.call()
+        secondPiyo.call()
     }
 }

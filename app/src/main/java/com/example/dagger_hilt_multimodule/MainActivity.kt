@@ -3,6 +3,7 @@ package com.example.dagger_hilt_multimodule
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.example.app.submodule.SubModuleInjectedClass
 import com.example.dagger_hilt_multimodule.binds.HogeInterface
 import com.example.dagger_hilt_multimodule.modifier.FirstPiyo
 import com.example.dagger_hilt_multimodule.modifier.Piyo
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var secondPiyo: Piyo
 
+    // サブモジュールのクラスの Inject
+    @Inject
+    lateinit var subModuleInjectedClass: SubModuleInjectedClass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,5 +65,7 @@ class MainActivity : AppCompatActivity() {
 
         firstPiyo.call()
         secondPiyo.call()
+
+        subModuleInjectedClass.call()
     }
 }
